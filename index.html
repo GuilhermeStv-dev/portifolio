@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilherme Estevão</title>
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="profile">
+            <div class="photo">
+                <img id="perfil" src="assets/images/FOTOMINHA.jpg" alt="Foto de perfil">
+            </div>
+            <div class="welcome">Bem-vindo(a),<br> meu nome é <strong>Guilherme Estevão</strong> e esse é o meu portfólio.</div>
+        </div>
+        <div class="buttons">
+            <button onclick="location.href='#footer'" class="contato">Contato</button>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="tituloContainer">
+                <h1>Guilherme Estevão</h1>
+                <span>UX | UI Designer</span>
+            </div>
+            <div class="projetos">
+                <div class="projeto" id="item1" onclick="openSVG('assets/images/svgs/Apresentação.svg')">
+                    <div class="picText">
+                        <h1>Clique para ver mais</h1>
+                    </div>
+                    <img src="assets/images/Group 13941.png" alt="Projeto LC Fotografia">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container" id="footer">
+            <div class="tituloContainer">
+                <h1>Tire suas dúvidas</h1>
+                <span>*Atendimento apenas em horário comercial.</span>
+            </div>
+            <div class="contact-container">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <img src="assets/images/svgs/ri_whatsapp-line.svg" alt="Icone Email">
+                    </div>
+                    <div class="contact-info">
+                        <button class="whatsapp">Enviar Mensagem</button>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <img src="assets/images/svgs/mdi_instagram.svg" alt="Icone Email">
+                    </div>
+                    <div class="contact-info">
+                        <button class="instagram">Enviar Mensagem</button>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <img src="assets/images/svgs/ic_outline-email.svg" alt="Icone Email">
+                    </div>
+                    <div class="contact-info">
+                        <p>guilhermeestevao485@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <label>© Guilherme Estevão 2025. Todos os direitos reservados.</label>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Visualização do Projeto</h2>
+            <div id="svg-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function openSVG(svgPath) {
+            const svgContainer = document.getElementById('svg-container');
+
+            // Limpa qualquer SVG anterior
+            svgContainer.innerHTML = '';
+
+            // Cria um elemento <object> para carregar o SVG
+            let objectElement = document.createElement('object');
+            objectElement.type = "image/svg+xml";
+            objectElement.data = svgPath;
+            objectElement.width = "100%";
+            objectElement.height = "100%";
+
+            // Adiciona ao container
+            svgContainer.appendChild(objectElement);
+
+            // Exibe o modal
+            document.getElementById('modal').style.display = "block";
+
+            // Desativa o efeito de hover enquanto o modal estiver aberto
+            document.querySelector('.projeto').classList.add('no-hover');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+            document.querySelector('.projeto').classList.remove('no-hover');
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+    </script>
+
+    <style>
+        /* Desativa o hover quando o modal está aberto */
+        .no-hover:hover::after {
+            opacity: 0 !important;
+        }
+    </style>
+
+</body>
+</html>
