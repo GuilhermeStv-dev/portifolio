@@ -641,12 +641,21 @@ label {
             box-shadow: none;
         }
         .projetos {
-            width: 16rem;
-            height: 9rem;
+            width: 100%;
+            height: 80%;
+            padding: 0;
+            margin: 0;
         }
 
         .projeto {
             width: 100%;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
         }
     
         /* Garante que o container azul fique centralizado */
@@ -656,14 +665,14 @@ label {
             width: auto;
             margin: 1.25rem auto;
             text-align: center;
-            padding: 1.5rem 1rem;
+            padding: 0;
             border: solid 0.125rem #f9ce34;
         }
 
         .contact-box {
             width: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             padding: 0.5rem;
         }
         
@@ -685,7 +694,7 @@ label {
             width: 3rem;
             height: 3rem;
             margin: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
         }
         .contact-info {
             line-height: 0%;
@@ -696,7 +705,7 @@ label {
         .whatsapp {
             color: #034694;
             background: none;
-            font-size: 0.5rem;
+            font-size: 0.8rem;
             cursor: pointer;
             padding: 0.5rem 2rem;
             font-weight: 600;
@@ -716,7 +725,7 @@ label {
         .instagram {
             color: #034694;
             background: none;
-            font-size: 0.5rem;
+            font-size: 0.8rem;
             cursor: pointer;
             font-weight: 600;
             padding: 0.5rem 2rem;
