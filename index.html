@@ -26,7 +26,7 @@
                 <span>UX | UI Designer</span>
             </div>
             <div class="projetos">
-                <div class="projeto" id="item1" onclick="openSVG('portifólio/assets/images/svgs/Apresentacao.svg')">
+                <div class="projeto" id="item1" onclick="openSVG('portifolio/assets/images/svgs/Apresentacao.svg')">
                     <div class="picText">
                         <h1>Clique para ver mais</h1>
                     </div>
@@ -83,50 +83,30 @@
 
     <script>
         function openSVG(svgPath) {
-            console.log("Abrindo SVG:", svgPath); // Log para depuração
-    
             const svgContainer = document.getElementById('svg-container');
             const modal = document.getElementById('modal');
-    
-            if (!svgContainer || !modal) {
-                console.error("Erro: svg-container ou modal não encontrados no DOM!");
-                return;
-            }
-    
-            // Limpa qualquer SVG anterior
+        
+            // Limpar conteúdo anterior
             svgContainer.innerHTML = '';
-    
-            // Cria o elemento <object>
-            let objectElement = document.createElement('object');
-            objectElement.type = "image/svg+xml";
-            objectElement.data = svgPath;
-            objectElement.width = "100%";
-            objectElement.height = "100%";
-    
-            // Adiciona evento para detectar quando o SVG foi carregado
-            objectElement.onload = function () {
-                console.log("SVG carregado com sucesso!");
-                modal.style.display = "flex"; // Exibe o modal
-            };
-    
-            // Trata erro de carregamento do SVG
-            objectElement.onerror = function () {
-                console.error("Erro ao carregar o SVG:", svgPath);
-                alert("Erro ao carregar a imagem. Verifique o caminho do arquivo.");
-            };
-    
-            // Adiciona o SVG ao container
-            svgContainer.appendChild(objectElement);
-    
-            // Exibe o modal (caso o onload falhe)
-            setTimeout(() => {
-                if (objectElement.contentDocument) {
-                    modal.style.display = "flex";
-                }
-            }, 500);
-    
-            // Desativa hover no projeto
-            document.querySelector('.projeto').classList.add('no-hover');
+        
+            // Criar elemento object
+            const objectEl = document.createElement('object');
+            objectEl.data = svgPath;
+            objectEl.type = 'image/svg+xml';
+            objectEl.style.width = '100%';
+            objectEl.style.height = '100%';
+        
+            // Adicionar evento de load
+            objectEl.addEventListener('load', () => {
+                console.log('SVG carregado!');
+                modal.style.display = "flex";
+            });
+        
+            // Adicionar ao container
+            svgContainer.appendChild(objectEl);
+        
+            // Mostrar modal mesmo se houver erro (opcional)
+            modal.style.display = "flex";
         }
     
         function closeModal() {
