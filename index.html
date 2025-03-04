@@ -83,33 +83,54 @@
 
     <script>
         function openSVG(svgPath) {
+            console.log("Abrindo SVG:", svgPath); // Log para depuração
+    
             const svgContainer = document.getElementById('svg-container');
+            const modal = document.getElementById('modal');
+    
+            if (!svgContainer || !modal) {
+                console.error("Erro: svg-container ou modal não encontrados no DOM!");
+                return;
+            }
     
             // Limpa qualquer SVG anterior
             svgContainer.innerHTML = '';
     
-            // Cria um novo objeto <object> para carregar o SVG
+            // Cria o elemento <object>
             let objectElement = document.createElement('object');
             objectElement.type = "image/svg+xml";
             objectElement.data = svgPath;
             objectElement.width = "100%";
             objectElement.height = "100%";
-            objectElement.style.display = "none"; // Esconde até carregar
     
-            // Adiciona o objeto ao container
+            // Adiciona evento para detectar quando o SVG foi carregado
+            objectElement.onload = function () {
+                console.log("SVG carregado com sucesso!");
+                modal.style.display = "flex"; // Exibe o modal
+            };
+    
+            // Trata erro de carregamento do SVG
+            objectElement.onerror = function () {
+                console.error("Erro ao carregar o SVG:", svgPath);
+                alert("Erro ao carregar a imagem. Verifique o caminho do arquivo.");
+            };
+    
+            // Adiciona o SVG ao container
             svgContainer.appendChild(objectElement);
     
-            // Aguarda um tempo antes de exibir o modal para garantir que o SVG carregue
+            // Exibe o modal (caso o onload falhe)
             setTimeout(() => {
-                objectElement.style.display = "block"; // Agora exibe o SVG
-                document.getElementById('modal').style.display = "flex"; // Torna o modal visível
-            }, 300); // Atraso de 300ms para garantir o carregamento
+                if (objectElement.contentDocument) {
+                    modal.style.display = "flex";
+                }
+            }, 500);
     
-            // Desativa o efeito de hover enquanto o modal estiver aberto
+            // Desativa hover no projeto
             document.querySelector('.projeto').classList.add('no-hover');
         }
     
         function closeModal() {
+            console.log("Fechando modal...");
             document.getElementById('modal').style.display = "none";
             document.querySelector('.projeto').classList.remove('no-hover');
         }
@@ -122,6 +143,7 @@
             }
         };
     </script>
+
 
 
     <style>
