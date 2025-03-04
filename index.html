@@ -84,32 +84,36 @@
     <script>
         function openSVG(svgPath) {
             const svgContainer = document.getElementById('svg-container');
-
+    
             // Limpa qualquer SVG anterior
             svgContainer.innerHTML = '';
-
-            // Cria um elemento <object> para carregar o SVG
+    
+            // Cria um novo objeto <object> para carregar o SVG
             let objectElement = document.createElement('object');
             objectElement.type = "image/svg+xml";
             objectElement.data = svgPath;
             objectElement.width = "100%";
             objectElement.height = "100%";
-
-            // Adiciona ao container
+            objectElement.style.display = "none"; // Esconde até carregar
+    
+            // Adiciona o objeto ao container
             svgContainer.appendChild(objectElement);
-
-            // Exibe o modal
-            document.getElementById('modal').style.display = "block";
-
+    
+            // Aguarda um tempo antes de exibir o modal para garantir que o SVG carregue
+            setTimeout(() => {
+                objectElement.style.display = "block"; // Agora exibe o SVG
+                document.getElementById('modal').style.display = "flex"; // Torna o modal visível
+            }, 300); // Atraso de 300ms para garantir o carregamento
+    
             // Desativa o efeito de hover enquanto o modal estiver aberto
             document.querySelector('.projeto').classList.add('no-hover');
         }
-
+    
         function closeModal() {
             document.getElementById('modal').style.display = "none";
             document.querySelector('.projeto').classList.remove('no-hover');
         }
-
+    
         // Fecha o modal ao clicar fora dele
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
@@ -117,8 +121,8 @@
                 closeModal();
             }
         };
-
     </script>
+
 
     <style>
         /* Desativa o hover quando o modal está aberto */
