@@ -207,7 +207,6 @@ label {
     line-height: 0%;
 }
 .contact-info p {
-    font-size: 1.4rem;
     color: #034694;
 }
 .whatsapp {
@@ -252,7 +251,7 @@ label {
     top: 0.6rem;
 }
 .contact-box p {
-    font-size: 2rem !important; /* ou tente valores menores */
+    font-size: 1.8rem !important; /* ou tente valores menores */
     font-weight: bolder;
 }
 
