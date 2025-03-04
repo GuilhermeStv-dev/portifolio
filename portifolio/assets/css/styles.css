@@ -1,0 +1,832 @@
+body {
+    width: auto;
+    margin: 1rem;
+    background: linear-gradient(45deg, #097cff,#f1f1ff,#097cff,#f1f1ff,#94bdff);
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: solid 0.1rem #034694;
+}
+
+.profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.buttons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.contato:active {
+    right: 1.5rem;
+    top: 3.5rem;
+    box-shadow: none;
+}
+
+#perfil {
+    width: 6.8125rem;
+    height: 6.8125rem;
+    border-radius: 50%;
+    border: solid 0.5rem #034694;
+    object-fit: cover;
+}
+
+.welcome {
+    color: #034694;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    width: 70%;
+    margin-left: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3.125rem;
+    margin: 1.875rem 1rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(-45deg, #034694,#1C1C7D,#0d2d60);
+}
+
+.tituloContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
+    color: #ffd04d;
+}
+
+.tituloContainer h1 {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-bottom: 0.3125rem;
+}
+.tituloContainer span {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 0;
+    display: block;
+}
+.projetos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: start;
+    margin: 0;
+}
+
+.projeto {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 80%;
+    margin-bottom: 1.25rem;
+    background: none;
+    border: solid 0.125rem #f9ce34;
+    color: #f9ce34;
+    text-align: center;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    overflow: hidden; /* Garante que o conteúdo não vaze para fora do contêiner */
+    margin: 0 1rem;
+}
+
+.projeto img {
+    width: 100%;
+    height: 80%;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: block;
+    z-index: 1; /* Garantir que a imagem fique abaixo do texto */
+}
+
+.projeto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Efeito de vidro translúcido */
+    backdrop-filter: blur(0.625rem); /* Efeito de desfoque */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0; /* Coloca o efeito de desfoque atrás da imagem */
+}
+
+.projeto:hover::after {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.picText {
+    position: absolute;
+    bottom: 1.25rem; /* Menos espaço para caber melhor */
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Impede que o texto fique cortado */
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+    color: #ffd04d;
+}
+
+.projeto:hover .picText {
+    opacity: 1;
+}
+
+.picText h1 {
+    font-size: 2rem;
+    margin-bottom: 0.3125rem;
+    text-decoration: underline;
+}
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+}
+
+.contatoSection {
+    display: flex;
+    min-height: 46.875rem; /* Em vez de height fixo */
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-bottom: 6.25rem;
+}
+.contact-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0;
+}
+.contact-icon {
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+}
+.contact-icon img {
+    width: 4rem;
+}
+.contact-icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.contact-info {
+    line-height: 0%;
+}
+.contact-info p {
+    font-size: 1.5rem;
+    color: #034694;
+}
+.whatsapp {
+    color: #034694;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    position: relative;
+    width: auto;
+    height: auto;
+    border: solid 0.125rem #034694;
+    box-shadow: 0.25rem 0.25rem 0rem #034694;
+    border-radius: 0.5rem;
+}
+.whatsapp:active {
+    right: -0.4rem;
+    top: 0.6rem;
+    box-shadow: none;
+}
+
+.instagram {
+    color: #034694;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    position: relative;
+    width: auto;
+    height: auto;
+    border: solid 0.125rem #034694;
+    box-shadow: 0.25rem 0.25rem 0rem #034694;
+    border-radius: 0.5rem;
+}
+.instagram:active {
+    box-shadow: none;
+    right: -0.4rem;
+    top: 0.6rem;
+}
+.contact-box p {
+    font-weight: bolder;
+}
+
+
+.modal {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+object svg {
+    fill: currentColor !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.close {
+    color: #ff0000;
+    font-weight: bold;
+    margin-left: auto; /* Alinha à direita automaticamente */
+    position: absolute;
+    top: 0.625rem;
+    right: 1.25rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-hover {
+    pointer-events: none; /* Desativa interações */
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.25rem auto;
+}
+.contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #097cff,#f1f1ff,#097cff);
+    padding: 1.25rem;
+    margin-bottom: 0.625rem;
+    border-radius: 0.625rem;
+    box-shadow: 0.125rem 0.125rem 0rem #034694;
+}
+.contact-box h2 {
+    font-size: 1.4rem;
+    margin: 0rem;
+    color: #042c7f;
+    display: flex;
+}
+.contact-box-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contato {
+    position: relative;
+    width: auto;
+    height: auto;
+    color: #034694;
+    background: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    max-width: 10rem;
+    margin: 0rem;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    font-size: 2rem; /* Reduz um pouco para telas menores */
+    font-weight: 600;
+    border: solid 0.125rem #034694;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0.25rem 0.25rem 0rem #034694;
+}
+
+.contato:active {
+    right: -0.4rem;
+    top: 0.6rem;
+    box-shadow: none;
+}
+    @media (min-width: 768px) and (max-width: 1024px) {
+        body {
+            padding: 0.625rem;
+            width: auto;
+            margin: 1rem;
+        }
+
+        header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: auto;
+        }
+        
+        footer {
+            width: auto;
+            display: block;
+        }
+
+        .tituloContainer h1 {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .welcome {
+            margin: 0;
+            width: auto;
+        }
+
+        .buttons {
+            margin-top: 1.25rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contato {
+            position: relative;
+            width: auto;
+            height: auto;
+            color: #034694;
+            background: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            max-width: 10rem;
+            margin: 0rem;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            font-size: 2rem; /* Reduz um pouco para telas menores */
+            font-weight: 600;
+            border: solid 0.125rem #034694;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+        }
+        
+        .contato:active {
+            right: -0.4rem;
+            top: 0.6rem;
+            box-shadow: none;
+        }
+
+        .projeto {
+            width: 100%;
+        }
+    
+        /* Garante que o container azul fique centralizado */
+        .container {
+            display: flex;
+            justify-content: center;
+            width: auto;
+            margin: 1.25rem auto;
+            text-align: center;
+            padding: 1.25rem;
+        }
+        .contact-box {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .contact-container {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            margin: 0;
+        }
+        .contact-icon {
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+        }
+        .contact-icon img {
+            width: 4rem;
+        }
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+        .contact-info {
+            line-height: 0%;
+        }
+        .contact-info p {
+            color: #034694;
+        }
+        .whatsapp {
+            color: #034694;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            position: relative;
+            width: auto;
+            height: auto;
+            border: solid 0.125rem #034694;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+            border-radius: 0.5rem;
+        }
+        .whatsapp:active {
+            right: -0.4rem;
+            top: 0.6rem;
+            box-shadow: none;
+        }
+
+        .instagram {
+            color: #034694;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.5rem 2rem;
+            position: relative;
+            width: auto;
+            height: auto;
+            border: solid 0.125rem #034694;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+            border-radius: 0.5rem;
+        }
+        .instagram:active {
+            box-shadow: none;
+            right: -0.4rem;
+            top: 0.6rem;
+        }   
+        
+        .profile {
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        /* Ajusta imagem de perfil */
+        .profile-img {
+            width: 6.25rem; /* Reduz tamanho */
+            height: 6.25rem;
+            margin: 0 auto; /* Centraliza */
+            display: block;
+        }
+
+        .contatoSection {
+            flex-direction: column; /* Empilhar elementos no tablet */
+            align-items: center;
+            gap: 1.875rem; /* Melhor espaçamento */
+            margin-bottom: 3.125rem;
+        }
+    
+        /* Seção do projeto ajustada */
+        .project-section {
+            width: 100%;
+            max-width: 20rem;
+            margin: 0 auto;
+            padding: 0.625rem;
+            text-align: center;
+        }
+    
+        .project-text {
+            font-size: 0.875rem; /* Reduz fonte */
+            line-height: 1.4; /* Melhor espaçamento */
+            word-break: break-word; /* Evita que palavras grandes estourem a tela */
+        }
+
+        .contact-box-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-box-text h2 {
+            font-size: 1rem;
+        }
+
+        .contact-box p {
+            font-size: 1.5rem !important; /* ou tente valores menores */
+            font-weight: bolder;
+        }
+
+        .copyright {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            margin-bottom: 0.5rem;
+        }
+        .no-hover {
+            pointer-events: none; /* Desativa interações */
+        }
+        .modal {
+            z-index: 1000; /* Certifique-se de que é maior que qualquer outro elemento */
+        }
+        .picText {
+            display: none;
+        }
+        
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        body {
+            width: auto;
+            margin: 0.5rem;
+        }
+
+        header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: auto;
+        }
+        
+        footer {
+            width: auto;
+            display: block;
+        }
+
+        .tituloContainer h1 {
+            font-size: 1.5rem;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .tituloContainer {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .welcome {
+            font-size: 0.95rem;
+            margin: 0;
+            width: auto;
+        }
+
+        .buttons {
+            margin-top: 1.25rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contato {
+            position: relative;
+            width: auto;
+            height: auto;
+            color: #034694;
+            background: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            max-width: 10rem;
+            margin: 0rem;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            font-size: 1rem; /* Reduz um pouco para telas menores */
+            font-weight: 600;
+            border: solid 0.125rem #034694;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+        }
+        
+        .contato:active {
+            right: -0.4rem;
+            top: 0.6rem;
+            box-shadow: none;
+        }
+        .projetos {
+            width: 100%;
+            height: 80%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .projeto {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+    
+        /* Garante que o container azul fique centralizado */
+        .container {
+            display: flex;
+            justify-content: center;
+            width: auto;
+            margin: 1.25rem auto;
+            text-align: center;
+            padding: 0;
+            border: solid 0.125rem #f9ce34;
+        }
+
+        .contact-box {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            padding: 0.5rem;
+        }
+        
+        .contact-container {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            margin: 0;
+        }
+        .contact-icon {
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+        }
+        .contact-icon img {
+            width: 3rem;
+        }
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0;
+            margin-bottom: 0;
+        }
+        .contact-info {
+            line-height: 0%;
+        }
+        .contact-info p {
+            color: #034694;
+        }
+        .whatsapp {
+            color: #034694;
+            background: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            position: relative;
+            width: auto;
+            height: auto;
+            border: solid 0.125rem #034694;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+            border-radius: 0.5rem;
+        }
+        .whatsapp:active {
+            right: -0.4rem;
+            top: 0.6rem;
+            box-shadow: none;
+        }
+
+        .instagram {
+            color: #034694;
+            background: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.5rem 2rem;
+            position: relative;
+            width: auto;
+            height: auto;
+            border: solid 0.125rem #034694;
+            box-shadow: 0.25rem 0.25rem 0rem #034694;
+            border-radius: 0.5rem;
+        }
+        .instagram:active {
+            box-shadow: none;
+            right: -0.4rem;
+            top: 0.6rem;
+        }   
+        
+        .profile {
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        /* Ajusta imagem de perfil */
+        .profile-img {
+            width: 6.25rem; /* Reduz tamanho */
+            height: 6.25rem;
+            margin: 0 auto; /* Centraliza */
+            display: block;
+        }
+
+        .contatoSection {
+            flex-direction: column; /* Empilhar elementos no tablet */
+            align-items: center;
+            gap: 1.875rem; /* Melhor espaçamento */
+            margin-bottom: 3.125rem;
+        }
+    
+        /* Seção do projeto ajustada */
+        .project-section {
+            width: 100%;
+            max-width: 20rem;
+            margin: 0 auto;
+            padding: 0.625rem;
+            text-align: center;
+        }
+    
+        .project-text {
+            font-size: 0.875rem; /* Reduz fonte */
+            line-height: 1.4; /* Melhor espaçamento */
+            word-break: break-word; /* Evita que palavras grandes estourem a tela */
+        }
+
+        .contact-box-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-box-text h2 {
+            font-size: 1rem;
+        }
+
+        .contact-box p {
+            font-size: 0.8rem !important; /* ou tente valores menores */
+            font-weight: bolder;
+        }
+        
+        .tituloContainer span {
+            font-size: 0.875rem;
+            width: 80%;
+        }
+
+        .copyright {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bolder;
+            margin-bottom: 0.5rem;
+        }
+        .no-hover {
+            pointer-events: none; /* Desativa interações */
+        }
+        .modal {
+            z-index: 1000; /* Certifique-se de que é maior que qualquer outro elemento */
+        }
+        .picText {
+            display: none;
+        }
+        .picText img {
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
